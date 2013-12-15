@@ -1,6 +1,6 @@
 
 /**
- * Module dependencies.
+ * ModUle dependencies.
  */
 
 var express = require('express');
@@ -9,6 +9,7 @@ var http = require('http');
 var path = require('path');
 
 var app = express();
+
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -28,7 +29,7 @@ if ('development' == app.get('env')) {
 }
 
 //set routes
-app.get('/', routes.index);
+routes(app);
 
 //run server and listen port
 http.createServer(app).listen(app.get('port'), function(){
