@@ -28,4 +28,22 @@
     });
   };
 
+  exports.login = function(req, res) {};
+
+  exports.register = function(req, res) {
+    var User, newUser;
+    User = models.User;
+    newUser = new User({
+      account: req.body.account,
+      password: req.body.password
+    });
+    return newUser.save(function(err, user) {
+      return res.send("Wellcome to join us" + user.account + "!!");
+    });
+  };
+
+  exports.logout = function(req, res) {};
+
+  exports.persion = function(req, res) {};
+
 }).call(this);

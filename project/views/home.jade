@@ -9,12 +9,26 @@ html
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js")
   body
     .header
-        .login login
-        .register register
+        .login-button login
+        .register-button register
     .wrap
       .search
-        input.go(type='text' placeholder="请输入...")
-        .button go
+        input.go(type='text' placeholder="please enter...")
+        .go-button go
         .cl
     .topLayer
+    .register
+      p register
+      input.account(name="account" placeholder="please enter an account..." type="text")
+      input.password(name="password" placeholder="please enter your password..." type="password")
+      input.password2(name="password2" placeholder="please enter your password again.." type="password")
+      .register-submit register
+      .delete
+    .login
+      p login 
+      input.account(name="account" placeholder="please enter an account..." type="text")
+      input.password(name="password" placeholder="please enter your password..." type="password")
+      .login-submit login 
+      .delete
+
     script(src='javascripts/search.js')

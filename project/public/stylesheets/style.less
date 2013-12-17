@@ -16,7 +16,7 @@ body {
 	z-index:1;
 	top:0;
 	left:0;
-	.login ,.register {
+	.login-button ,.register-button {
 		color:#fff;
 		width:60px;
 		height:16px;
@@ -26,14 +26,14 @@ body {
 		top:3px;
 		background-color:#A32D20;
 	}
-	.register {
+	.register-button {
 		right:64px;
 		&:hover {
 			background-color:#CA1A06;
 			cursor:pointer;
 		}
 	}
-	.login {
+	.login-button {
 		right:132px;
 		&:hover {
 			background-color:#CA1A06;
@@ -56,7 +56,7 @@ body {
 	margin:0;
     border:0px solid #fff;
   }
-  .button {
+  .go-button {
     width:60px;
     background-color:#A32D20;
     color:#fff;
@@ -71,3 +71,48 @@ body {
 }
   
 
+.login , .register {
+  width:420px;
+  background-color:rgb(66,66,66);
+  text-align:center;
+  color:#fff;
+  display:none;
+  padding:18px 0 ;
+  position:relative;
+  .delete {
+    position:absolute;
+    width:32px;
+    height:32px;
+    top:-16px;
+    right:-16px;
+    background-image:url("../images/delete2.png");
+    &:hover {
+      background-image:url("../images/delete1.png");
+    }
+  }
+
+  p {
+    margin:0;
+    font-family:"黑体";
+    font-size:16px;
+    font-weight:bold;
+    color:#fff;
+  }
+  input {
+    margin:22px auto 0 auto;
+    width:360px;
+    padding:8px;
+    border:0px solid #fff;
+    background-color:#fff;
+  }
+  .login-submit , .register-submit {
+      width:60px;
+      margin:22px auto 0 auto;
+      padding:8px 0;
+      background-color:#A32D20;
+      &:hover {
+      background-color:#CA1A06;
+      cursor:pointer;
+   }
+  }
+}

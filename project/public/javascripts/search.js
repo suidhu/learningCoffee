@@ -2,7 +2,7 @@
 (function() {
   var contentCenter, topLayer;
 
-  $('.button').click(function() {
+  $('.go-button').click(function() {
     var search;
     search = $('.go').val();
     if (search) {
@@ -18,7 +18,7 @@
 
   $(".go").keypress(function(event) {
     if (event.keyCode === 13) {
-      return $(".button").triggerHandler('click');
+      return $(".go-button").triggerHandler('click');
     }
   });
 
@@ -36,12 +36,12 @@
   };
 
   topLayer = function(content) {
-    var div, hgt, marginTop, wdt, _content;
-    topLayer = $(".topLayer");
+    var div, hgt, marginTop, wdt, _content, _topLayer;
+    _topLayer = $(".topLayer");
     wdt = $(document).width();
     hgt = $(document).height();
-    topLayer.height(hgt).width(wdt);
-    topLayer.css({
+    _topLayer.height(hgt).width(wdt);
+    _topLayer.css({
       'background-color': 'rgba(0,0,0,0.6)',
       'position': 'absolute',
       top: "0",
@@ -50,21 +50,43 @@
     });
     if (content) {
       div = $("<div></div>");
-      topLayer.append(div);
+      _content = $(content).clone(true);
+      _topLayer.append(div);
       div.height($(window).height()).width($(window).width());
       marginTop = $(window).scrollTop();
       div.css({
         position: "relative",
         marginTop: marginTop
       });
-      _content = $(content).clone();
       div.append(_content);
+      _content.fadeIn(200);
       return contentCenter(_content);
     }
   };
 
-  $(".login,.register").click(function() {
-    return topLayer();
+  $(".login-button").click(function() {
+    return topLayer($('.login'));
+  });
+
+  $(".register-button").click(function() {
+    return topLayer($('.register'));
+  });
+
+  $(".delete").click(function() {
+    $('.topLayer').empty();
+    return $('.topLayer').height(0);
+  });
+
+  $(".register-submit").click(function() {
+    var account, password;
+    account = $(".account").val();
+    password = $(".password").val();
+    return $.post("/register", {
+      account: account,
+      password: password
+    }, function(data) {
+      return alert(data);
+    });
   });
 
   $(function() {
